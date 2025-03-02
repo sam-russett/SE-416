@@ -1,3 +1,4 @@
+package Assignment_1;
 
 // Base class --> any type of Vehicle
 abstract class Vehicle {
@@ -26,7 +27,11 @@ class car extends Vehicle {
     }
 
     public void fuel() {
-        System.out.println("Fueling " + make + " " + model + " with gasoline");
+        System.out.println("Fueling " + make + " " + model + " with gasoline until tank is full");
+    }
+
+    public void fuel(int amount) {
+        System.out.println("Fueling " + make + " " + model + " with " + amount + " gallons of gasoline");
     }
 
     public void topSpeed() {
@@ -47,5 +52,9 @@ class Airplane extends Vehicle {
 
     public void fuel() {
         System.out.println("Fueling " + name + " with jet fuel");
+    }
+
+    public void topSpeed() {
+        System.out.println(name + " flies at top speed of " + speed + " and altitude of " + altitude);
     }
 }
