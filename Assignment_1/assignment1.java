@@ -1,7 +1,7 @@
 package Assignment_1;
 
 // Base class --> any type of Vehicle
-abstract class Vehicle {
+abstract class Vehicle implements startVehicle {
     protected int speed;
 
     public Vehicle(int speed) {
@@ -13,9 +13,19 @@ abstract class Vehicle {
     public void topSpeed() {
         System.out.println("Top speed is " + speed + "mph");
     }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Starting engine...");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Stopping engine...");
+    }
 }
 
-class car extends Vehicle {
+class car extends Vehicle{
 
     protected String make;
     protected String model;
@@ -56,5 +66,26 @@ class Airplane extends Vehicle {
 
     public void topSpeed() {
         System.out.println(name + " flies at top speed of " + speed + " and altitude of " + altitude);
+    }
+}
+
+class electricCar extends car {
+    
+    public electricCar(String name, int speed, String make, String model) {
+        super(name, speed, make, model);
+    }
+
+    public void fuel() {
+        System.out.println("Charing " + make + " " + model);
+    }
+
+    @Override
+    public void startEngine() {
+        System.out.println("Electric car has no engine, turning on motors...");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Electric car has no engine, turning off motors...");
     }
 }
