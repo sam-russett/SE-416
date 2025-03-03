@@ -1,10 +1,20 @@
 package Assignment_1;
 
+
 // Base class --> any type of Vehicle
 abstract class Vehicle implements startVehicle {
     protected int speed;
 
     public Vehicle(int speed) {
+        this.speed = speed;
+    }
+
+    // Getter and Setter for speed
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
         this.speed = speed;
     }
 
@@ -22,6 +32,15 @@ abstract class Vehicle implements startVehicle {
     @Override
     public void stopEngine() {
         System.out.println("Stopping engine...");
+    }
+
+    //Example of Data Coupling
+    public int getDistance(int speed, int time) {
+        return calculateDistance(speed, time);
+    }
+
+    public int calculateDistance(int speed, int time) {
+        return speed * time;
     }
 }
 
@@ -87,5 +106,15 @@ class electricCar extends car {
     @Override
     public void stopEngine() {
         System.out.println("Electric car has no engine, turning off motors...");
+    }
+}
+
+//Example of Stamp Coupling
+class UpdateVehicle {
+
+    //Method for modifying the speed of any Vehicle object
+    public void updateSpeed(Vehicle vehicle, int newSpeed) {
+        vehicle.setSpeed(newSpeed);
+        System.out.println("Updated speed: " + vehicle.getSpeed() + "mph");
     }
 }
