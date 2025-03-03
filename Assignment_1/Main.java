@@ -3,7 +3,7 @@ package Assignment_1;
 // Some example use cases of the Data and Stamp coupling
 public class Main {
     public static void main(String[] args) {
-        car myCar = new car("Mustang", 120, "Ford", "GT");
+        Car myCar = new Car("Mustang", 120, "Ford", "GT");
         Airplane myPlane = new Airplane("Boeing 747", "35000 ft", 570);
         
         UpdateVehicle service = new UpdateVehicle();
